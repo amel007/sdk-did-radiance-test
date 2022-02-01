@@ -19,7 +19,7 @@ const core = require('../src/did-client-core.js');
 
 async function main() {
 
-  core.initSettings("devNet", client);
+  core.initSettings("devNet", libNode);
   
   const did = 'did:everscale:5214b9f26c13a9258245d86995f5b93c34eb9a2c982420cda871919f454ca194';
   
@@ -41,7 +41,7 @@ import core from '../src/did-client-core.js';
 
 async function main() {
 
-  core.initSettings("devNet", client);
+  core.initSettings("devNet", libWeb);
   
   const did = 'did:everscale:5214b9f26c13a9258245d86995f5b93c34eb9a2c982420cda871919f454ca194';
   
