@@ -1,7 +1,7 @@
 {
-  "name": "sdk-did-radiance-test",
+  "name": "everscale-did-sdk-radiance-test",
   "version": "0.1.0",
-  "description": "Radiance DID SDK",
+  "description": "Radiance Everscale DID SDK",
   "main": "src/did-client-core.js",
   "scripts": {
     "test": "cd test && node ./run.js"
