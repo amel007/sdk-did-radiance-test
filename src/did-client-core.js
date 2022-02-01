@@ -13,6 +13,7 @@ const config = require( './config/config.json');
 
 module.exports = {
     initSettings,
+    getClient,
     signData,
     verifyMessage,
     createNewDidDocumentJson,
@@ -31,7 +32,7 @@ module.exports = {
 
 const settings = {}
 
-function initSettings(network, client) {
+function initSettings(network, lib) {
 
     const networkParams = config.listNetwork[network];
 
@@ -39,8 +40,14 @@ function initSettings(network, client) {
 
     console.log(networkParams);
 
-    settings.client = client;
+    TonClient.useBinaryLibrary(lib);
+
+    settings.client = new TonClient({network: {endpoints: [networkParams.endpoint]}});
     settings.addressDidStorage = networkParams.storageRoot;
+}
+
+function getClient() {
+    return settings.client;
 }
 
 async function signData(msg, secretKey){

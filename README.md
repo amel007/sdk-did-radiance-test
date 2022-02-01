@@ -12,12 +12,7 @@ This SDK aims to help the development of integrations with DidStorage smart-cont
 
 ```javascript
 
-const { TonClient } = require("@tonclient/core");
 const { libNode } = require("@tonclient/lib-node");
-
-TonClient.useBinaryLibrary(libNode);
-
-const client = new TonClient({network: {endpoints: ["net.ton.dev"]}});
 
 const core = require('../src/did-client-core.js');
 
@@ -26,7 +21,7 @@ async function main() {
 
   core.initSettings("devNet", client);
   
-  const did = 'did:everscale:28ba63cce65283cbccb368fea5ce49bc998cac156334dff20ad1ba262b2d0766';
+  const did = 'did:everscale:5214b9f26c13a9258245d86995f5b93c34eb9a2c982420cda871919f454ca194';
   
   res = await core.resolveDIDDocument(did);
 
@@ -39,12 +34,8 @@ async function main() {
 [Specification](./docs/spec-did-core.md)
 
 ```javascript
-import {TonClient} from "@tonclient/core";
 
-import {libWeb} from "@tonclient/lib-web";
-TonClient.useBinaryLibrary(libWeb);
-
-const client = new TonClient({network: {endpoints: ["net.ton.dev"]}});
+import { libWeb } from "@tonclient/lib-web";
 
 import core from '../src/did-client-core.js';
 
@@ -52,7 +43,7 @@ async function main() {
 
   core.initSettings("devNet", client);
   
-  const did = 'did:everscale:28ba63cce65283cbccb368fea5ce49bc998cac156334dff20ad1ba262b2d0766';
+  const did = 'did:everscale:5214b9f26c13a9258245d86995f5b93c34eb9a2c982420cda871919f454ca194';
   
   res = await core.resolveDIDDocument(did);
 

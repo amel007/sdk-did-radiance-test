@@ -3,10 +3,6 @@ const { libNode } = require("@tonclient/lib-node");
 
 const { Account } = require("@tonclient/appkit");
 
-TonClient.useBinaryLibrary(libNode);
-
-const client = new TonClient({network: {endpoints: ["net.ton.dev"]}});
-
 const core = require('../src/did-client-core.js');
 
 const { GiverContract } = require("../src/contract-package/Giver.js");
@@ -44,7 +40,9 @@ async function main() {
 
     outputResultTest('start tests', true);
 
-    core.initSettings("devNet", client);
+    core.initSettings("devNet", libNode);
+
+    const client = core.getClient();
 
     console.log('create client wallet for test');
 
@@ -162,12 +160,15 @@ async function main() {
             console.error(error);
         }
     }
-    client.close();
+    core.getClient().close();
     process.exit(0);
 })();
 
 async function deployWallet(valueFromGiver) {
     let response;
+
+    const client = core.getClient();
+
     const SEED_PHRASE_WORD_COUNT = 12;
     const SEED_PHRASE_DICTIONARY_ENGLISH = 1;
     const HD_PATH = "m/44'/396'/0'/0/0";

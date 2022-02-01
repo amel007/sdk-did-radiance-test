@@ -1,14 +1,24 @@
 ## did-client-core.js
 
 ---
-### initSettings(network, client)
+### initSettings(network, lib)
 
 initialize settings for sdk
 
     network<string> - "devNet" for net.ton.dev or "mainNet" for main.ton.dev (see config/config.json)
-    client<TonClient> - client for basic operations with smart-contracts ("@tonclient/core")
+    lib<libNode | libWeb> - library (@tonclient/lib-node or @tonclient/lib-web) of client for basic operations with smart-contracts ("@tonclient/core")
 
 ---
+
+---
+### getClient()
+
+return current client of sdk
+
+`return<TonClient> client for basic operations with smart-contracts ("@tonclient/core")`
+
+---
+
 ### createNewDidDocumentJson(pubKey)
 
 create default didDocument json object
