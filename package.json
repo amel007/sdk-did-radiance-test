@@ -1,6 +1,6 @@
 {
   "name": "sdk-did-radiance-test",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "description": "Radiance DID SDK",
   "main": "src/did-client-core.js",
   "scripts": {
